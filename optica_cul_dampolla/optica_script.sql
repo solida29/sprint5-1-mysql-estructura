@@ -107,18 +107,18 @@ DEFAULT CHARSET=utf8
 COLLATE=utf8_general_ci;
 
 -- optica_cul_ampolla.vendedores definition ---------------------
-CREATE TABLE optica_cul_ampolla.vendedores (
-	id_vendedor INT auto_increment NOT NULL,
-	nombre varchar(100) NOT NULL,
-	apellido varchar(100) NOT NULL,
-	dni varchar(100) NOT NULL,
-	direccion_id INT NULL,
-	venta_id INT NULL,
-	CONSTRAINT vendedores_PK PRIMARY KEY (id_vendedor),
-	CONSTRAINT vendedores_UN UNIQUE KEY (dni),
-	CONSTRAINT vendedores_FK FOREIGN KEY (venta_id) REFERENCES optica_cul_ampolla.ventas(id_venta),
-	CONSTRAINT vendedores_FK_1 FOREIGN KEY (direccion_id) REFERENCES optica_cul_ampolla.direcciones(id_direccion)
-)
-ENGINE=InnoDB
-DEFAULT CHARSET=utf8
-COLLATE=utf8_general_ci;
+CREATE TABLE `vendedores` (
+  `id_vendedor` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(100) NOT NULL,
+  `apellido` varchar(100) NOT NULL,
+  `dni` varchar(100) NOT NULL,
+  `direccion_id` int(11) DEFAULT NULL,
+  `venta_id` int(11) DEFAULT NULL,
+  `tiempo_ventas` time DEFAULT NULL,
+  PRIMARY KEY (`id_vendedor`),
+  UNIQUE KEY `vendedores_UN` (`dni`),
+  KEY `vendedores_FK` (`venta_id`),
+  KEY `vendedores_FK_1` (`direccion_id`),
+  CONSTRAINT `vendedores_FK` FOREIGN KEY (`venta_id`) REFERENCES `ventas` (`id_venta`),
+  CONSTRAINT `vendedores_FK_1` FOREIGN KEY (`direccion_id`) REFERENCES `direcciones` (`id_direccion`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
