@@ -15,7 +15,7 @@ DEFAULT CHARSET=utf8
 COLLATE=utf8_general_ci;
 
 -- optica_cul_ampolla.proveedores definition ---------------
-CREATE TABLE `proveedores` (
+CREATE TABLE optica_cul_ampolla.proveedores (
   `id_proveedor` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) NOT NULL,
   `telefono` varchar(20) NOT NULL,
@@ -45,7 +45,7 @@ DEFAULT CHARSET=utf8
 COLLATE=utf8_general_ci;
 
 -- optica_cul_ampolla.montura definition ---------------------
-CREATE TABLE `montura` (
+CREATE TABLE optica_cul_ampolla.montura (
   `material` enum('pasta','metal','flotante') NOT NULL,
   `color` varchar(50) NOT NULL,
   `gafas_id` int(11) NOT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE `montura` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- optica_cul_ampolla.cristal_izquierdo definition ---------------------
-CREATE TABLE `cristal_izquierdo` (
+CREATE TABLE optica_cul_ampolla.cristal_izquierdo (
   `graduacion` float DEFAULT NULL,
   `color` varchar(50) DEFAULT NULL,
   `gafas_id` int(11) DEFAULT NULL,
@@ -107,7 +107,7 @@ DEFAULT CHARSET=utf8
 COLLATE=utf8_general_ci;
 
 -- optica_cul_ampolla.vendedores definition ---------------------
-CREATE TABLE `vendedores` (
+CREATE TABLE optica_cul_ampolla.vendedores (
   `id_vendedor` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) NOT NULL,
   `apellido` varchar(100) NOT NULL,
@@ -121,7 +121,5 @@ CREATE TABLE `vendedores` (
   KEY `vendedores_FK_1` (`direccion_id`),
   CONSTRAINT `vendedores_FK` FOREIGN KEY (`venta_id`) REFERENCES `ventas` (`id_venta`),
   CONSTRAINT `vendedores_FK_1` FOREIGN KEY (`direccion_id`) REFERENCES `direcciones` (`id_direccion`)
-) 
-ENGINE=InnoDB 
-DEFAULT CHARSET=utf8
-COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
