@@ -13,9 +13,7 @@ INSERT INTO optica.direcciones
 ('Calle J', '100', 2, 1, 'San Sebastian', '08010', 'España'),
 ('Calle K', '110', 2, 1, 'San Sebastian', '08011', 'España'),
 ('Calle L', '120', 2, 1, 'San Sebastian', '08012', 'España'),
-('Calle M', '130', 2, 1, 'Berlin', '08013', 'Alemania'),
-('Calle N', '140', 2, 1, 'Berlin', '08013', 'Alemania'),
-('Calle O', '150', 2, 1, 'Berlin', '08013', 'Alemania')
+('Calle M', '130', 2, 1, 'Berlin', '08013', 'Alemania')
 ;
 
 -- 2_proveedores datos ---------------

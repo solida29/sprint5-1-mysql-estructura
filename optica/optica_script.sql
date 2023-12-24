@@ -64,8 +64,7 @@ CREATE TABLE IF NOT EXISTS optica.gafas (
   proveedor_id INT,
   gafas_id INT,
   CONSTRAINT gafas_PK PRIMARY KEY (id_gafas),
-  CONSTRAINT gafas_proveedores_FK FOREIGN KEY (proveedor_id) REFERENCES proveedores(id_proveedor),
-  CONSTRAINT gafas_FK_ventas FOREIGN KEY (gafas_id) REFERENCES gafas(id_gafas)
+  CONSTRAINT gafas_proveedores_FK FOREIGN KEY (proveedor_id) REFERENCES proveedores(id_proveedor)
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
@@ -104,3 +103,4 @@ CREATE TABLE IF NOT EXISTS optica.ventas (
   CONSTRAINT ventas_FK_vendedor FOREIGN KEY (vendedor_id) REFERENCES vendedores(id_vendedor)
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
