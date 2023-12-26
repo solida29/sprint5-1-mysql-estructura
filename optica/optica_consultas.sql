@@ -1,12 +1,9 @@
 -- OPTICA
 
 -- Llista el total de compres d’un client/a
-SELECT clientes.nombre, COUNT(ventas.id_venta) AS total_compras
-FROM optica.clientes
-INNER JOIN optica.ventas
-ON clientes.id_cliente = ventas.cliente_id
-WHERE clientes.nombre = 'Steve'
-GROUP BY clientes.nombre;
+SELECT COUNT(cliente_id)
+FROM optica.ventas
+WHERE cliente_id = 3;
 
 -- Llista les diferents ulleres que ha venut un empleat durant un any.
 SELECT vendedores.nombre, gafas.marca, COUNT(ventas.id_venta) AS total_ventas
