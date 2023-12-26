@@ -1,7 +1,7 @@
 -- OPTICA
 
 -- Llista el total de compres d’un client/a
-SELECT COUNT(cliente_id)
+SELECT COUNT(cliente_id) AS total_ventas
 FROM optica.ventas
 WHERE cliente_id = 3;
 
