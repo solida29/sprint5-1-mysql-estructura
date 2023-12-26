@@ -62,7 +62,6 @@ CREATE TABLE IF NOT EXISTS optica.gafas (
   marca varchar(100) NOT NULL,
   precio DECIMAL(10,2) NOT NULL,
   proveedor_id INT,
-  gafas_id INT,
   CONSTRAINT gafas_PK PRIMARY KEY (id_gafas),
   CONSTRAINT gafas_proveedores_FK FOREIGN KEY (proveedor_id) REFERENCES proveedores(id_proveedor)
 )
