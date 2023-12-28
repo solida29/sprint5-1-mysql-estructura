@@ -33,18 +33,29 @@
 
 > > CONSTRAINT pizzas_FK_categoria FOREIGN KEY (categoria_pizza_id) REFERENCES categoria_pizza(id_categoria_pizza)
 
-# 5_cantidad_producto
+# 5_pedidos
+
+- id_pedido
+- cliente_id
+- fecha y hora
+- reparto a domicilio/recogida en tienda
+- precio_total
+
+> > one to many: un cliente puede tener varios pedidos pero un pedido puede ser realizado por un único cliente
+
+# 6_cantidad_producto
 
 - id_cantidad_producto INT
 - producto_id INT
 - cantidad INT
 - precio
+- pedido_id
 
 > > CONSTRAINT cantidad_producto_FK_producto FOREIGN KEY (producto_id) REFERENCES productos(id_producto)
+> > CONSTRAINT cantidad_producto_FK_pedido FOREIGN KEY (pedido_id) REFERENCES productos(id_pedido)
+> > one to many: pedido puede tener 1 o varios productos: FK pedido_id
 
-> > one to many: puede tener varias pizzas
-
-# tiendas
+# 7_tiendas
 
 - id_tienda
 - direccion_id
@@ -56,29 +67,22 @@
 > > one to many: puede gestionar varios pedidos
 > > one to many: puede tener varios empleados
 
-# empleados
+# 8_empleados
 
 - id_empleados
-- nombre
+- nombre_empleado
 - apellido
 - nif
 - telefono
 - puesto ENUM('cocinero', 'repartidor')
+- tienda_id
 
-# entrega_domicilio
+> > one to many: un empleado en una sola tienda pero una tienda puede tener muchos empleados
+> > FK tienda_id
+
+# 9_entrega_domicilio
 
 - id_entrega
 - empleado_id
 - pedido_id
 - fecha y hora de la entrega
-
-# pedidos
-
-- id_pedido
-- fecha y hora
-- reparto a domicilio/recogida en tienda
-- cantidad de producto de cada tipo
-- precio total
-
-> > one to many: pedido puede tener 1 o varios productos
-> > FK en pizzas, hamburguesas, bebidas
