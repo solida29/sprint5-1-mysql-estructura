@@ -1,75 +1,84 @@
-# clientes
-
-id_cliente
-nombre
-apellido
-numero_telefono
-
--> puede realizar muchos pedidos (one to many, FK en pedidos)
-
 # 1_direcciones OK
 
-direccion
-cp
-ciudad
-provincia
+- direccion
+- cp
+- ciudad
+- provincia
 
-# pedidos
+# 2_clientes OK
 
-id_pedido
-fecha y hora
-reparto a domicilio/recogida en tienda
-cantidad de producto de cada tipo
-precio total
+- id_cliente
+- nombre
+- apellido
+- numero_telefono
+- direccion_id
 
--> pedido puede tener 1 o varios productos
--> one to many: FK en pizzas, hamburguesas, bebidas)
+> > CONSTRAINT clientes_FK_direccion FOREIGN KEY (direccion_id) REFERENCES direcciones (id_direccion)
+> > puede realizar muchos pedidos (one to many, FK en pedidos cliente_id)
 
-# pizzas
+# 3_categoria_pizzas
 
-id_pizza
-hamburguesas
-id_hamburguesa
-bebidas
-id_bebida
+- id_categoria_pizzas
+- nombre
 
-# productos
+# 4_productos OK
 
-id_producto
-nombre
-descripcion
-imagen
-precio
+- id_producto
+- categoria_producto ENUM("pizza", "Hamburguesa", "Bebida")
+- nombre
+- descripcion
+- imagen
+- precio
+- categoria_pizza_id VARCHAR(100) NULL
 
-# categoria de pizzas
+> > CONSTRAINT pizzas_FK_categoria FOREIGN KEY (categoria_pizza_id) REFERENCES categoria_pizza(id_categoria_pizza)
 
-id_categoria_pizzas
-nombre
+# 5_cantidad_producto
+
+- id_cantidad_producto INT
+- producto_id INT
+- cantidad INT
+- precio
+
+> > CONSTRAINT cantidad_producto_FK_producto FOREIGN KEY (producto_id) REFERENCES productos(id_producto)
 
 > > one to many: puede tener varias pizzas
 
-# tienda
+# tiendas
 
--> one to many: puede gestionar varios pedidos
-id_tienda
-direccion
-cp
-ciudad
-provincia
-pedido_id
-one to many: puede tener varios empleados
+- id_tienda
+- direccion_id
+- pedido_id
+
+> > CONSTRAINT tiendas_FK_direccion FOREIGN KEY (direccion_id) REFERENCES direcciones(id_direccion)
+> > CONSTRAINT tiendas_FK_pedido FOREIGN KEY (pedido_id) REFERENCES pedidos(id_pedido)
+
+> > one to many: puede gestionar varios pedidos
+> > one to many: puede tener varios empleados
 
 # empleados
 
-id_empleados
-nombre
-apellido
-nif
-telefono
-puesto: cocinero o repartidor (enum)
+- id_empleados
+- nombre
+- apellido
+- nif
+- telefono
+- puesto ENUM('cocinero', 'repartidor')
 
-# entrega a domicilio
+# entrega_domicilio
 
-empleado_id
-pedido_id
-fecha y hora de la entrega
+- id_entrega
+- empleado_id
+- pedido_id
+- fecha y hora de la entrega
+
+# pedidos
+
+- id_pedido
+- fecha y hora
+- reparto a domicilio/recogida en tienda
+- cantidad de producto de cada tipo
+- precio total
+
+> > one to many: pedido puede tener 1 o varios productos
+> > FK en pizzas, hamburguesas, bebidas
