@@ -86,3 +86,6 @@
 - empleado_id
 - pedido_id
 - fecha y hora de la entrega
+
+> > FK empleado_id
+> > FK pedido_id
