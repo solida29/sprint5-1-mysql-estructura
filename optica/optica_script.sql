@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS optica.direcciones (
   piso SMALLINT NULL,
   puerta SMALLINT NULL,
   ciudad varchar(100) NOT NULL,
-  codigo_postal INT NULL,
+  codigo_postal VARCHAR(5) NULL,
   pais varchar(100) NOT NULL,
   CONSTRAINT direcciones_PK PRIMARY KEY (id_direccion)
 )

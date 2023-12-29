@@ -1,10 +1,12 @@
+-- PRIMER SCRIPT A EJECUTAR: CREACION DE LA BASE DE DATOS Y TABLAS
+
 CREATE DATABASE IF NOT EXISTS pizzeria;
 
 -- 1_direcciones definition -----------
 CREATE TABLE IF NOT EXISTS pizzeria.direcciones (
     id_direccion INT(11) auto_increment NOT NULL,
     direccion varchar(200) NOT NULL,
-    codigo_postal INT NULL,
+    codigo_postal VARCHAR(5) NULL,
     ciudad varchar(100) NOT NULL,
     provincia varchar(100) NOT NULL,
     PRIMARY KEY (id_direccion)
@@ -37,8 +39,8 @@ CREATE TABLE IF NOT EXISTS pizzeria.productos (
     id_producto INT(11) auto_increment NOT NULL,
     tipo_producto  ENUM('Pizza', 'Hamburguesa', 'Bebida'),
     nombre_producto VARCHAR(100) NOT NULL,
-    descripcion_producto VARCHAR(100) NULL,
-    imagen_producto VARCHAR(100) NULL,
+    descripcion_producto VARCHAR(500) NULL,
+    imagen_producto VARCHAR(300) NULL,
     precio_producto  DECIMAL(10,2),
     categoria_pizza_id INT(11) NULL,
     PRIMARY KEY (id_producto),
