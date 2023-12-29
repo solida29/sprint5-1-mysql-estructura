@@ -24,19 +24,44 @@ INSERT INTO optica.proveedores
 ('Proveedor3', '+34 600 333 333', NULL, 'P333',3)
 ;
 
--- 3_gafas datos ---------------------
-INSERT INTO optica.gafas
-(marca, precio, proveedor_id) VALUES
-('Marca1', 100.00, 1),
-('Marca2', 150.00, 1),
-('Marca3', 50.50, 2),
-('Marca4', 150.50, 2),
-('Marca5', 100.00, 3),
-('Marca6', 200.00, 3)
+-- 3_clientes datos ---------------------
+INSERT INTO optica.clientes
+(nombre, apellido, direccion_id, telefono, email, fecha_registro, recomendacion_id) VALUES
+('Steve', 'Mac Queen', 4, '600 111 222', 'steve@gmail.com', current_timestamp(), NULL),
+('Kim', 'Basinger', 5, '600 333 444', 'kim@gmail.com', current_timestamp(), NULL),
+('Axel', 'Rose', 6, '600 555 666', 'marc@gmail.com', current_timestamp(), 2)
 ;
 
+-- 4_vendedores datos ---------------------
+INSERT INTO optica.vendedores
+(nombre, apellido, dni, direccion_id, tiempo_ventas) VALUES
+('Bob', 'Marley', 'V111', 7, '00:50:00'),
+('Peter', 'Jackson', 'V222', 8, '00:20:00'),
+('Lana', 'Del Rey', 'V333', 9, '01:00:00')
+;
 
--- 4_montura datos ---------------------
+-- 5_ventas datos ---------------------
+INSERT INTO optica.ventas
+(fecha, cliente_id, vendedor_id) VALUES
+(current_timestamp(), 1, 1),
+(current_timestamp(), 1, 1),
+(current_timestamp(), 2, 2),
+(current_timestamp(), 2, 2),
+(current_timestamp(), 3, 1)
+;
+
+-- 6_gafas datos ---------------------
+INSERT INTO optica.gafas
+(marca, precio, proveedor_id, venta_id) VALUES
+('Marca1', 100.00, 1, 1),
+('Marca2', 150.00, 1, 2),
+('Marca3', 50.50, 2, 3),
+('Marca4', 150.50, 2, 4),
+('Marca5', 100.00, 3, 5),
+('Marca6', 200.00, 3, NULL)
+;
+
+-- 7_montura datos ---------------------
 INSERT INTO optica.montura 
 (material, color, gafas_id) VALUES
 ('pasta', 'rojo', 1),
@@ -47,7 +72,7 @@ INSERT INTO optica.montura
 ('metal', 'azul', 6)
 ;
 
--- 5_cristales datos ---------------------
+-- 8_cristales datos ---------------------
 INSERT INTO optica.cristales
 (izq_graduacion, izq_color, der_graduacion, der_color, gafas_id) VALUES
 (1.00, 'transparente', 3.25, 'transparente', 1),
@@ -56,30 +81,4 @@ INSERT INTO optica.cristales
 (4.00, 'transparente', 5.00, 'transparente', 4),
 (5.00, 'transparente', 0.00, 'transparente', 5),
 (6.00, 'oscuro', 3.25, 'oscuro', 6)
-;
-
--- 6_clientes datos ---------------------
-INSERT INTO optica.clientes
-(nombre, apellido, direccion_id, telefono, email, fecha_registro, recomendacion_id) VALUES
-('Steve', 'Mac Queen', 4, '600 111 222', 'steve@gmail.com', current_timestamp(), NULL),
-('Kim', 'Basinger', 5, '600 333 444', 'kim@gmail.com', current_timestamp(), NULL),
-('Axel', 'Rose', 6, '600 555 666', 'marc@gmail.com', current_timestamp(), NULL)
-;
-
--- 7_vendedores datos ---------------------
-INSERT INTO optica.vendedores
-(nombre, apellido, dni, direccion_id, tiempo_ventas) VALUES
-('Bob', 'Marley', 'V111', 7, '00:50:00'),
-('Peter', 'Jackson', 'V222', 8, '00:20:00'),
-('Lana', 'Del Rey', 'V333', 9, '01:00:00')
-;
-
--- 8_ventas datos ---------------------
-INSERT INTO optica.ventas
-(fecha, gafas_id, cliente_id, vendedor_id) VALUES
-(current_timestamp(), 1, 1, 1),
-(current_timestamp(), 2, 1, 1),
-(current_timestamp(), 3, 2, 2),
-(current_timestamp(), 4, 2, 2),
-(current_timestamp(), 5, 3, 1)
 ;
