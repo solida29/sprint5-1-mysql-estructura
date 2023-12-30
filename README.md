@@ -97,7 +97,7 @@ pizzeria_script.sql
 pizzeria_insert.sql
 ```
 
-3. Estan las 3 consultas en el archivo siguientes ("Requisits"):
+3. Estan las 2 consultas en el archivo siguientes:
 
 ```bash
 pizzeria_consultas.sql
