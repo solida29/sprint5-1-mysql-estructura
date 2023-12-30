@@ -61,7 +61,7 @@ Para usar el Docker:
 docker compose up
 ```
 
-## Ejercicio Optica
+### Ejercicio Optica
 
 1. Para montar la estructura de la base de datos "optica", hay que ejecutar:
 
@@ -81,4 +81,26 @@ optica_insert.sql
 optica_consultas.sql
 ```
 
-## Ejercicio Pizzeria
+4. Se puede consultar el diagrama en el archivo optica_diagrama.png
+
+### Ejercicio Pizzeria
+
+1. Para montar la estructura de la base de datos "pizzeria", hay que ejecutar:
+
+```bash
+pizzeria_script.sql
+```
+
+2. Para hacer la inserciones de datos hay que ejecutar el archivo:
+
+```bash
+pizzeria_insert.sql
+```
+
+3. Estan las 3 consultas en el archivo siguientes ("Requisits"):
+
+```bash
+pizzeria_consultas.sql
+```
+
+4. Se puede consultar el diagrama en el archivo pizzeria_diagrama.png
